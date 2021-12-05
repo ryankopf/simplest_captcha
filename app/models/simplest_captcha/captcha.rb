@@ -37,6 +37,10 @@ module SimplestCaptcha
       end
     end
 
+    def self.check_without_updating(captcha_id,word)
+      !Captcha.where(id: captcha_id, private_key: word.downcase).empty?
+    end
+
 
     def self.newpass( len )
       chars = ("a".."h").to_a

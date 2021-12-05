@@ -20,7 +20,7 @@ module SimplestCaptcha
     end
 
     def captcha_valid?(atts)
-      SimplestCaptcha::Captcha::validate(atts[:captcha_id],atts[:captcha.downcase])
+      SimplestCaptcha::Captcha::check_without_updating(atts[:captcha_id],atts[:captcha.downcase])
     end
   end
 end
