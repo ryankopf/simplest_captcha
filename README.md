@@ -19,6 +19,13 @@ $ bundle
 Or install it yourself as:
 ```bash
 $ gem install simplest_captcha
+$ rails simplest_captcha:install:migrations
+$ rails db:migrate SCOPE=simplest_captcha
+```
+
+You need to add this to your routes.rb
+```
+  mount SimplestCaptcha::Engine => "/captcha"
 ```
 
 ## Contributing
