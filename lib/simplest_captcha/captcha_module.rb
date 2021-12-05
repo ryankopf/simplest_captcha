@@ -19,8 +19,8 @@ module SimplestCaptcha
       errors.add("captcha","does not match") unless SimplestCaptcha::Captcha::validate(self.captcha_id,self.captcha.downcase)
     end
 
-    def captcha_valid?
-      SimplestCaptcha::Captcha::validate(self.captcha_id,self.captcha.downcase)
+    def captcha_valid?(atts)
+      SimplestCaptcha::Captcha::validate(atts[:captcha_id],atts[:captcha.downcase])
     end
   end
 end
