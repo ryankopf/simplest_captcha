@@ -1,6 +1,7 @@
 require "simplest_captcha/version"
 require "simplest_captcha/engine"
 require "simplest_captcha/captcha_module"
+require "simplest_captcha/captcha_helper"
 
 module SimplestCaptcha
   # Your code goes here...
