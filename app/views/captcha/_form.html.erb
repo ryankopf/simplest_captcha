@@ -1,0 +1,14 @@
+<% unless (user_is_validated?) %>
+<%= f.hidden_field :captcha_id, value: "#{captcha_public}" %>
+<div class="cimg"><img src="/captcha/<%= captcha_public %>.gif" id="captcha_img">
+<%= link_to "<img src='https://i.ani.me/0251/9977/ref.png' alt='new image' border='0' class='refresh'>".html_safe, {controller: "captcha", action: "show",
+						  id: captcha_public, format: "js" }, method: :get, remote: true %></div>
+<div><%= f.text_field :captcha, autocomplete: :off %></div>
+<div><small>
+  <% if logged_in? %>
+    Repeat the letters shown or <%= link_to "validate your mobile phone.", current_user, :target => "_blank" %>
+  <% else %>
+    <a href="/login" target="_blank">Login and validate your account.</a>
+  <% end %>
+</small></div>
+<% end %>

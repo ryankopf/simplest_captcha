@@ -1,0 +1,2 @@
+$("#captcha_img").attr('src',"<%= "/captcha/#{@captcha.id}.gif" + "?" + Time.now.to_i.to_s %>")
+$("#captcha_img").show();
