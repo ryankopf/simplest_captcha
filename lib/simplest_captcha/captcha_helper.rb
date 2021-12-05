@@ -11,7 +11,7 @@ module SimplestCaptcha
       stringbuf << f.hidden_field(:captcha_id, value: "#{captcha_public}")
       stringbuf << "<div class='cimg'><img src='/captcha/#{captcha_public}.gif' id='captcha_img' class='captcha_img'></div>"
       img = "<img src='https://i.ani.me/0251/9977/ref.png' alt='new image' border='0' class='refresh'>"
-      stringbuf << link_to(img.html_safe, "/captcha/#{captcha_public.id}.js", method: :get, remote: true)
+      stringbuf << link_to(img.html_safe, "/captcha/#{captcha_public}.js", method: :get, remote: true)
       stringbuf << "<div>"
       stringbuf << f.text_field(:captcha, autocomplete: :off)
       stringbuf << "</div>"
