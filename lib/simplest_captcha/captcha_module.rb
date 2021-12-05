@@ -19,8 +19,8 @@ module SimplestCaptcha
       errors.add("captcha","does not match") unless SimplestCaptcha::Captcha::validate(self.captcha_id,self.captcha.downcase)
     end
 
-    def captcha_valid?(atts)
-      SimplestCaptcha::Captcha::check_without_updating(atts[:captcha_id],atts[:captcha.downcase])
+    def params_contains_valid_captcha?(params)
+      SimplestCaptcha::Captcha::check_without_updating(params[:captcha_id],params[:captcha.downcase])
     end
   end
 end
