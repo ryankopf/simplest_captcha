@@ -10,4 +10,7 @@ module SimplestCaptcha
       ActionView::Base.send :include, SimplestCaptcha::CaptchaHelper
     end
   end
+  def self.root
+    File.dirname __dir__
+  end
 end

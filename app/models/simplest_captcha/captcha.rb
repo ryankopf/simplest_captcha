@@ -85,10 +85,10 @@ module SimplestCaptcha
 
       images = Array.new
       word.each_char { |c|
-        images << Magick::Image.read(Rails.root.join("captcha/#{c}.gif")).first
+        images << Magick::Image.read(SimplestCaptcha.root.join("captcha/#{c}.gif")).first
       }
 
-      mark = Magick::Image.read(Rails.root.join("captcha/blank.gif")).first
+      mark = Magick::Image.read(SimplestCaptcha.root.join("captcha/blank.gif")).first
       x = -40
       y = 0
       for image in images
