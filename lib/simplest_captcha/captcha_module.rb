@@ -20,7 +20,8 @@ module SimplestCaptcha
     end
 
     def params_contains_valid_captcha?(params)
-      SimplestCaptcha::Captcha::check_without_updating(params[:captcha_id],params[:captcha.downcase])
+      return nil if (params[:captcha_id].blank? || params[:captcha].blank?)
+      SimplestCaptcha::Captcha::check_without_updating(params[:captcha_id],params[:captcha].downcase)
     end
   end
 end
