@@ -25,6 +25,7 @@ module SimplestCaptcha
         end
         stringbuf << "</div>"
       end
+      stringbuf << "</div>"
       return stringbuf.html_safe
     end
   end
