@@ -4,7 +4,8 @@ module SimplestCaptcha
       stringbuf = "<div class='captcha_tag'>"
       if respond_to?(:user_is_validated?)
         if user_is_validated?
-          return stringbuf << "</div>"
+          stringbuf << "</div>"
+          return stringbuf.html_safe
         end
       end
       captcha_public = SimplestCaptcha::Captcha::generate
