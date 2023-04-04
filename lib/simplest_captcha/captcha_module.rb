@@ -4,6 +4,10 @@ module SimplestCaptcha
 
     def captcha_correct
       return true if self.captcha_skip
+      if self.captcha.blank?
+        errors.add("captcha","does not exist")
+        return
+      end
       errors.add("captcha","does not match") unless SimplestCaptcha::Captcha::validate(self.captcha_id,self.captcha.downcase)
     end
 
@@ -20,7 +24,10 @@ module SimplestCaptcha
     def captcha_valid_for_revisable
       return true if (self.revision_of.present? && self.new_record?)
       return true if self.captcha_skip
-      errors.add("captcha","does not exist") if self.captcha.blank?
+      if self.captcha.blank?
+        errors.add("captcha","does not exist")
+        return
+      end
       errors.add("captcha","does not match") unless SimplestCaptcha::Captcha::validate(self.captcha_id,self.captcha.downcase)
     end
 
