@@ -16,6 +16,7 @@ module SimplestCaptcha
         return true
       end
       captcha = Captcha.find(theobject.captcha_id)
+      return false if captcha.private_key == "DELETEMESOON4"
       if theobject.captcha.downcase == captcha.private_key
         captcha.update_column(:private_key,"DELETEMESOON4")
         return true
@@ -25,10 +26,12 @@ module SimplestCaptcha
     end
 
     def self.validate(captcha_id,word,theuser=nil)
+      return false if word.nil?
       if (theuser.present? && theuser.respond_to?(:validated?) && theuser.validated?)
         return true
       end
       captcha = Captcha.find(captcha_id)
+      return false if captcha.private_key == "DELETEMESOON4"
       if word.downcase == captcha.private_key
         captcha.update_column(:private_key,"DELETEMESOON4")
         return true
