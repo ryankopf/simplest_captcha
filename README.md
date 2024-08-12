@@ -1,7 +1,9 @@
 # SimplestCaptcha
-Short description and motivation.
+
+A very simple captcha system.
 
 ## Usage
+
 How to use my plugin.
 
 ## Installation
